@@ -229,7 +229,7 @@
   .journey b{font-family:var(--display);font-weight:700;letter-spacing:.2em}
   .tagline-card{font-family:var(--serif)}
 
-  /* ---------- KARL robotic assistant ---------- */
+  /* ---------- Felicia robotic assistant ---------- */
   .bot-fab{position:fixed;right:22px;bottom:22px;z-index:80;width:64px;height:64px;border-radius:50%;border:2px solid var(--gold-500);background:linear-gradient(145deg,var(--brown-800),var(--brown-950));box-shadow:0 14px 34px rgba(0,0,0,.45);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s}
   .bot-fab:hover{transform:translateY(-3px)}
   .bot-fab::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:2px solid rgba(201,162,90,.55);animation:botpulse 2.4s ease-out infinite}
@@ -474,7 +474,7 @@
   </div>
 </footer>
 
-<div class="bot-fab" id="botFab" role="button" tabindex="0" aria-label="Chat with KARL, the robotic launch assistant" aria-expanded="false">
+<div class="bot-fab" id="botFab" role="button" tabindex="0" aria-label="Chat with Felicia, the robotic launch assistant" aria-expanded="false">
   <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e3c98f" stroke-width="1.5" aria-hidden="true">
     <circle class="antenna" cx="12" cy="3.6" r="1.1" fill="#d9202c" stroke="none"/>
     <path d="M12 7.5V4.7"/>
@@ -485,18 +485,18 @@
     <path d="M4.5 11H2.6M19.5 11h1.9"/>
   </svg>
 </div>
-<section class="bot-panel" id="botPanel" aria-label="KARL robotic launch assistant">
+<section class="bot-panel" id="botPanel" aria-label="Felicia robotic launch assistant">
   <header class="bot-head">
     <span class="avatar" aria-hidden="true">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e3c98f" stroke-width="1.5"><circle class="antenna" cx="12" cy="3.6" r="1.1" fill="#d9202c" stroke="none"/><path d="M12 7.5V4.7"/><rect x="4.5" y="7.5" width="15" height="11" rx="2.5"/><circle cx="9.3" cy="12.3" r="1.25" fill="#e3c98f" stroke="none"/><circle cx="14.7" cy="12.3" r="1.25" fill="#e3c98f" stroke="none"/><path d="M9.3 15.6h5.4"/></svg>
     </span>
-    <div><b>KARL</b><span>Robotic launch assistant &middot; <i>online</i></span></div>
+    <div><b>Felicia</b><span>Robotic launch assistant &middot; <i>online</i></span></div>
     <button class="bot-close" id="botClose" aria-label="Close chat">&times;</button>
   </header>
   <div class="msgs" id="botMsgs" role="log" aria-live="polite"></div>
   <div class="chips" id="botChips"></div>
   <form class="bot-input" id="botForm">
-    <input id="botText" type="text" placeholder="Ask about the book or the event&hellip;" autocomplete="off" aria-label="Message KARL">
+    <input id="botText" type="text" placeholder="Ask about the book or the event&hellip;" autocomplete="off" aria-label="Message Felicia">
     <button type="submit">Send</button>
   </form>
 </section>
@@ -559,7 +559,7 @@
     document.getElementById('successMsg').textContent = seats + (seats === '1' ? ' seat is' : ' seats are') + ' reserved — see you at AH Hotel, Friday 27th November 2026, 5:00 PM.';
     form.classList.add('done');
   });
-  // KARL robotic assistant
+  // Felicia robotic assistant
   (function(){
     var fab = document.getElementById('botFab');
     var panel = document.getElementById('botPanel');
@@ -619,7 +619,7 @@
       fab.setAttribute('aria-expanded', 'true');
       if (!greeted) {
         greeted = true;
-        bot("Beep… boop. I am KARL, the Knowledge & Academic Research Liaison for this launch. How may I assist your transformation?");
+        bot("Beep… boop. I am Felicia, the robotic launch assistant for this book launch. How may I assist your transformation?");
       }
       input.focus();
     }
