@@ -145,6 +145,8 @@
   .event-rows div{display:flex;align-items:baseline;gap:16px;padding:18px 4px;border-bottom:1px solid rgba(34,26,18,.25)}
   .event-rows dt{font-family:var(--sans);font-weight:800;color:var(--red);letter-spacing:.18em;font-size:.95rem;min-width:86px}
   .event-rows dd{font-family:var(--sans);font-weight:700;font-size:clamp(1.1rem,2.4vw,1.6rem);letter-spacing:.02em;text-transform:uppercase}
+  .event-rows a{color:inherit;text-decoration:none;border-bottom:2px solid rgba(201,162,90,.6)}
+  .event-rows a:hover{color:var(--red);border-color:var(--red)}
   .event .note{margin-top:26px;font-style:italic;color:var(--brown-700)}
   .event .count{margin-top:34px}
   .event .count div{background:var(--paper);border:1px solid rgba(34,26,18,.15);border-top:3px solid var(--red)}
@@ -158,6 +160,9 @@
   .rsvp{background:linear-gradient(140deg,var(--brown-950),var(--brown-850));color:var(--cream)}
   .rsvp .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
   .rsvp p.blurb{color:var(--cream-2);margin-top:20px;max-width:44ch}
+  .helpline{display:flex;align-items:center;gap:10px;margin-top:24px;font-family:var(--sans);font-weight:700;font-size:1.02rem;letter-spacing:.03em;color:var(--gold-500)}
+  .helpline a{color:var(--gold-100);text-decoration:none;border-bottom:2px solid rgba(201,162,90,.55)}
+  .helpline a:hover{border-color:var(--gold-100)}
   .rsvp form{background:var(--paper);color:var(--ink);padding:38px 36px;box-shadow:0 30px 70px rgba(0,0,0,.45);border-top:5px solid var(--red)}
   .field{margin-bottom:20px}
   .field label{display:block;font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brown-700);margin-bottom:8px}
@@ -176,6 +181,8 @@
   footer .script{font-family:var(--script);font-size:2.2rem;color:var(--gold-500);line-height:1.2}
   footer .line{width:60px;height:2px;background:var(--gold-700);margin:18px auto}
   footer p{font-size:.86rem}
+  footer .tel{color:var(--gold-500);text-decoration:none}
+  footer .tel:hover{color:var(--gold-300)}
   footer .top{display:inline-block;margin-top:18px;font-family:var(--sans);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-500);text-decoration:none}
   footer .top:hover{color:var(--gold-300)}
 
@@ -350,6 +357,7 @@
           <div><dt>Date:</dt><dd>27th November, 2026</dd></div>
           <div><dt>Time:</dt><dd>05:00 PM</dd></div>
           <div><dt>Venue:</dt><dd>AH Hotel</dd></div>
+          <div><dt>Help line:</dt><dd><a href="tel:+233536090597">+233 53 609 0597</a></dd></div>
         </dl>
         <div class="count" id="countEvent" role="timer" aria-label="Countdown to the book launch">
           <div><b data-d>00</b><span>Days</span></div>
@@ -373,6 +381,7 @@
         <h2>Reserve Your Seat</h2>
         <div class="rule"></div>
         <p class="blurb">Seats are limited and reservation is free. Tell us you are coming and we will hold your seat at AH Hotel on the 27th of November, 2026.</p>
+        <p class="helpline"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>Help line: <a href="tel:+233536090597">+233 53 609 0597</a></p>
       </div>
       <form id="rsvpForm" class="reveal" novalidate>
         <div class="form-body">
@@ -409,6 +418,7 @@
     <div class="line"></div>
     <p>&copy; 2026 Felicia Awura Ama Twumwaa Odei Benefo &middot; Official Book Launch</p>
     <p>AH Hotel &middot; 27th November 2026 &middot; 5:00 PM</p>
+    <p>Help line: <a class="tel" href="tel:+233536090597">+233 53 609 0597</a></p>
     <a class="top" href="#top">Back to top</a>
   </div>
 </footer>
