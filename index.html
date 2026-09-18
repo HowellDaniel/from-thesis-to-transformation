@@ -233,8 +233,9 @@
           <h2>Join us on 27th November 2026.</h2>
         </div>
         <p class="lead">
-          Reservations are free. Fill in your details below and your reservation
-          will be sent directly to the author by email.
+          Reservations are free. Seat numbering starts from 50 — pick your seat
+          and fill in your details, and your reservation will be sent directly
+          to the author by email.
         </p>
         <form class="rsvp-form" id="rsvpForm">
           <div>
@@ -246,14 +247,8 @@
             <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
           </div>
           <div>
-            <label for="seats">Number of seats</label>
-            <select id="seats" name="seats">
-              <option value="1">1 seat</option>
-              <option value="2">2 seats</option>
-              <option value="3">3 seats</option>
-              <option value="4">4 seats</option>
-              <option value="5">5 seats</option>
-            </select>
+            <label for="seat">Seat number</label>
+            <select id="seat" name="seat" required></select>
           </div>
           <button class="button primary" type="submit">Reserve your seat</button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
@@ -270,10 +265,18 @@
       (function () {
         var form = document.getElementById('rsvpForm');
         var status = document.getElementById('formStatus');
+        var seatSel = document.getElementById('seat');
+        for (var n = 50; n <= 100; n++) {
+          var o = document.createElement('option');
+          o.value = String(n);
+          o.textContent = 'Seat ' + n;
+          seatSel.appendChild(o);
+        }
         form.addEventListener('submit', function (e) {
           e.preventDefault();
           if (!form.reportValidity()) return;
           var btn = form.querySelector('button[type="submit"]');
+          var seatNo = seatSel.value;
           btn.disabled = true;
           status.className = 'form-status';
           status.textContent = 'Sending your reservation…';
@@ -283,8 +286,8 @@
             body: JSON.stringify({
               name: document.getElementById('name').value.trim(),
               email: document.getElementById('email').value.trim(),
-              seats: document.getElementById('seats').value,
-              _subject: 'New RSVP — From Thesis to Transformation',
+              'seat number': seatNo,
+              _subject: 'New RSVP — From Thesis to Transformation (Seat ' + seatNo + ')',
               _template: 'table'
             })
           })
@@ -297,7 +300,7 @@
             .then(function () {
               form.reset();
               status.className = 'form-status ok';
-              status.textContent = 'Thank you — your reservation has been sent to the author. See you at AH Hotel, 27th November 2026, 5:00 PM.';
+              status.textContent = 'Thank you — seat ' + seatNo + ' is reserved for you. See you at AH Hotel, 27th November 2026, 5:00 PM.';
             })
             .catch(function () {
               status.className = 'form-status err';
