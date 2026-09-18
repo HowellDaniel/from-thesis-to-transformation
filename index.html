@@ -226,12 +226,88 @@
             </div>
           </div>
         </section>
+
+        <section id="rsvp" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Reserve a seat</p>
+          <h2>Join us on 27th November 2026.</h2>
+        </div>
+        <p class="lead">
+          Reservations are free. Fill in your details below and your reservation
+          will be sent directly to the author by email.
+        </p>
+        <form class="rsvp-form" id="rsvpForm">
+          <div>
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" required autocomplete="name" placeholder="Your full name" />
+          </div>
+          <div>
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+          </div>
+          <div>
+            <label for="seats">Number of seats</label>
+            <select id="seats" name="seats">
+              <option value="1">1 seat</option>
+              <option value="2">2 seats</option>
+              <option value="3">3 seats</option>
+              <option value="4">4 seats</option>
+              <option value="5">5 seats</option>
+            </select>
+          </div>
+          <button class="button primary" type="submit">Reserve your seat</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </section>
       </main>
 
       <footer id="contact" class="footer">
         <p>For enquiries, contact the author and launch team.</p>
-        <a href="mailto:hello@example.com">hello@example.com</a>
+        <a href="mailto:amaodeibenefo@gmail.com">amaodeibenefo@gmail.com</a>
       </footer>
     </div>
+    <script>
+      (function () {
+        var form = document.getElementById('rsvpForm');
+        var status = document.getElementById('formStatus');
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!form.reportValidity()) return;
+          var btn = form.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          status.className = 'form-status';
+          status.textContent = 'Sending your reservation…';
+          fetch('https://formsubmit.co/ajax/amaodeibenefo@gmail.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({
+              name: document.getElementById('name').value.trim(),
+              email: document.getElementById('email').value.trim(),
+              seats: document.getElementById('seats').value,
+              _subject: 'New RSVP — From Thesis to Transformation',
+              _template: 'table'
+            })
+          })
+            .then(function (r) {
+              return r.json().then(function (d) {
+                if (!r.ok) throw new Error(d.message || d.error || 'Unable to send');
+                return d;
+              });
+            })
+            .then(function () {
+              form.reset();
+              status.className = 'form-status ok';
+              status.textContent = 'Thank you — your reservation has been sent to the author. See you at AH Hotel, 27th November 2026, 5:00 PM.';
+            })
+            .catch(function () {
+              status.className = 'form-status err';
+              status.textContent = 'Sorry, your reservation could not be sent right now. Please email amaodeibenefo@gmail.com directly.';
+            })
+            .finally(function () {
+              btn.disabled = false;
+            });
+        });
+      })();
+    </script>
   </body>
 </html>
