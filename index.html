@@ -137,6 +137,19 @@
   .card h3{font-family:var(--sans);font-weight:800;font-size:1.25rem;text-transform:uppercase;letter-spacing:.06em;margin:8px 0 10px;color:var(--brown-800)}
   .card p{font-size:.98rem}
 
+  /* inside the book */
+  .contents{background:linear-gradient(150deg,var(--brown-850),var(--brown-800) 55%,var(--brown-700));color:var(--cream)}
+  .contents h2{color:var(--cream)}
+  .contents .lead{font-size:1.06rem;max-width:60ch;color:var(--gold-100);margin-top:6px}
+  .contents-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+  .contents-grid .card{background:rgba(251,249,244,.05);border:1px solid rgba(201,162,90,.4);border-top:4px solid var(--gold-500);box-shadow:none}
+  .contents-grid .card:hover{background:rgba(251,249,244,.09);transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+  .contents-grid .card h3{color:var(--gold-300)}
+  .contents-grid .card p{color:var(--cream-2)}
+  .contents-grid .num{color:var(--gold-500)}
+  .book-quote{margin-top:48px;padding:30px 34px;background:rgba(29,18,6,.45);border-left:4px solid var(--red);font-style:italic;font-size:clamp(1.1rem,2.2vw,1.45rem);color:var(--gold-100);max-width:52ch}
+  .book-quote cite{display:block;margin-top:12px;font-style:normal;font-family:var(--sans);font-weight:500;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-500)}
+
   /* author */
   .author{background:linear-gradient(160deg,var(--brown-900),var(--brown-850) 60%,var(--brown-800));color:var(--cream)}
   .author .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
@@ -207,6 +220,7 @@
   @media (max-width:980px){
     .hero{padding:150px 0 90px}
     .hero .wrap,.book-grid,.author .wrap,.event .wrap,.rsvp .wrap{grid-template-columns:1fr;gap:56px}
+    .contents-grid{grid-template-columns:1fr 1fr}
     .hero-art{order:2}
     .tagline-card{right:0;top:-4%}
     .author .portrait-frame{margin-bottom:20px}
@@ -221,6 +235,7 @@
     .nav-links .btn{margin-top:16px;text-align:center}
     .count{flex-wrap:wrap}
     .count div{flex:1 1 40%}
+    .contents-grid{grid-template-columns:1fr}
     section{padding:76px 0}
   }
   /* ---------- classic restyle ---------- */
@@ -281,8 +296,16 @@
     {
       "@type": "Book",
       "name": "From Thesis to Transformation",
-      "author": {"@type": "Person", "name": "Felicia Awura Ama Twumwaa Odei Benefo"},
-      "description": "Turning your academic research into a book, a brand and a career.",
+      "description": "Turning your academic research into a book, a brand and a career. The book moves through five parts: Beyond the Defence, From Examiners to Readers, Building a Research Brand, Knowledge into Career, and Your Next Chapter.",
+      "author": {"@type": "Person", "name": "Felicia Awura Ama Twumwaa Odei Benefo", "description": "Accounting scholar, researcher, entrepreneur and emerging academic professional pursuing a PhD in Accounting."},
+      "genre": ["Academic research", "Personal development", "Publishing"],
+      "hasPart": [
+        {"@type": "Book", "name": "Part I — Beyond the Defence"},
+        {"@type": "Book", "name": "Part II — From Examiners to Readers"},
+        {"@type": "Book", "name": "Part III — Building a Research Brand"},
+        {"@type": "Book", "name": "Part IV — Knowledge into Career"},
+        {"@type": "Book", "name": "Part V — Your Next Chapter"}
+      ],
       "image": "https://howelldaniel.github.io/from-thesis-to-transformation/assets/book-cover.jpg",
       "url": "https://howelldaniel.github.io/from-thesis-to-transformation/"
     },
@@ -318,6 +341,7 @@
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#book">The Book</a></li>
+      <li><a href="#contents">Inside</a></li>
       <li><a href="#author">The Author</a></li>
       <li><a href="#event">The Event</a></li>
       <li><a class="btn btn-red btn-sm" href="#rsvp">Reserve a Seat</a></li>
@@ -416,6 +440,56 @@
           </article>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ INSIDE THE BOOK ============ -->
+  <section class="contents on-dark" id="contents">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Inside the Book</p>
+        <h2>What You&rsquo;ll Find<br>Between the Pages</h2>
+        <div class="rule"></div>
+        <p class="lead"><em>From Thesis to Transformation</em> moves through five parts &mdash; each one turning a stage of the research journey into a concrete next step, drawn from Felicia&rsquo;s path through IT Business, Petroleum Accounting and Finance, an MPhil in Accounting and an ongoing PhD.</p>
+      </div>
+
+      <div class="contents-grid">
+        <article class="card reveal">
+          <span class="num">Part I</span>
+          <h3>Beyond the Defence</h3>
+          <p>Why a thesis is raw material, not a finished endpoint &mdash; and how to see your own research through the lens of publication, influence and opportunity instead of submission.</p>
+        </article>
+        <article class="card reveal">
+          <span class="num">Part II</span>
+          <h3>From Examiners to Readers</h3>
+          <p>Reshaping academic argument into a manuscript people choose to read: structure, voice, storytelling with data, and the discipline of writing for a public without losing rigour.</p>
+        </article>
+        <article class="card reveal">
+          <span class="num">Part III</span>
+          <h3>Building a Research Brand</h3>
+          <p>Making expertise visible &mdash; the talks, articles and conversations that carry accounting and finance research out of the library and into boardrooms, policy debates and classrooms.</p>
+        </article>
+        <article class="card reveal">
+          <span class="num">Part IV</span>
+          <h3>Knowledge into Career</h3>
+          <p>Translating depth into livelihood: academic pathways, consulting, entrepreneurship and the Ghana-focused questions of accountability, sustainability and national development.</p>
+        </article>
+        <article class="card reveal">
+          <span class="num">Part V</span>
+          <h3>Your Next Chapter</h3>
+          <p>A practical playbook for what to do on Monday morning &mdash; the ninety-day plan, the publishing routes, and how to keep your research working long after the celebration ends.</p>
+        </article>
+        <article class="card reveal">
+          <span class="num">Plus</span>
+          <h3>Tools &amp; Reflections</h3>
+          <p>Worksheets, checklists and candid reflections from balancing a PhD, business and family &mdash; the honest companion to the strategy.</p>
+        </article>
+      </div>
+
+      <blockquote class="book-quote reveal">
+        &ldquo;What can my research become beyond the thesis?&rdquo;
+        <cite>The question at the heart of the book</cite>
+      </blockquote>
     </div>
   </section>
 
@@ -643,10 +717,11 @@
       {re:/(rsvp|reserve|seat|ticket|register|attend|free|cost|price|pay|entry)/i, a:"Reservations are free. Use the “Reserve Your Seat” form on this page — beep — and your seat will be held at AH Hotel."},
       {re:/(contact|call|phone|help|helpline|whatsapp|reach|support)/i, a:"Help line: +233 53 609 0597. A human answers faster than my processors."},
       {re:/(author|who|wrote|writer|felicia|benefo|speaker)/i, a:"The author is Felicia Awura Ama Twumwaa Odei Benefo — scholar, researcher, entrepreneur and finance professional."},
-      {re:/(book|thesis|transformation|about|title|read|content|chapter|topic)/i, a:"“From Thesis to Transformation” shows how to turn academic research into a book, a brand and a career. Its creed: Research Creates Knowledge. Purpose Turns It Into Impact."}
+      {re:/(content|contents|chapter|chapters|inside|covers?\s+about|talk(ing)?\s+about|topic|outline|parts?\s+of)/i, a:"The book has five parts: I — Beyond the Defence, II — From Examiners to Readers, III — Building a Research Brand, IV — Knowledge into Career, V — Your Next Chapter, plus worksheets and tools. Scroll to “Inside the Book” for the full overview."},
+      {re:/(book|thesis|transformation|about|title|read)/i, a:"“From Thesis to Transformation” shows how to turn academic research into a book, a brand and a career. Its creed: Research Creates Knowledge. Purpose Turns It Into Impact."}
     ];
     var FALLBACK = "Beep… my circuits lack that answer. Try a chip below, or call the help line: +233 53 609 0597.";
-    var CHIP_LIST = ["Date & time", "Venue", "Reserve a seat", "About the book", "Help line"];
+    var CHIP_LIST = ["Date & time", "Venue", "Reserve a seat", "About the book", "What's inside", "Help line"];
 
     function add(who, text){
       var d = document.createElement('div');
